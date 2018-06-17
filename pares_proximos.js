@@ -13,7 +13,7 @@ function setup() {
   var criarNumPontos = 15;
   pontos = new Array(criarNumPontos);
   for (var i = 0; i < criarNumPontos; i++) {
-    pontos[i] = createVector(random(100, width-100), random(100, height-100)); 
+    pontos[i] = createVector(random(1, width-100), random(1, height-100)); 
     // O createVector() é uma função da lib p5 que cria pontos no plano ou no espaço, no nosso caso estamos usando apenas p1 e p2 (x, y) (duas dimensões)
   }
   
@@ -142,11 +142,11 @@ function CPR(Px, Py) { //
   console.log("Sy: ");
   listaPontos(Sy);
   
-  var disMinS = 100000; // isso é uma gambiarra, pois a distancia minima de S nao pode ser menor na comparação 
+  var disMinS = delta;
   var s1;
   var s2;
   for (var i = 0; i < Sy.length; i++) {
-    for (var j = i+1; j < min(i+16, Sy.length); j++) { // esse 16 tbm é gambiarra, ele é log 100000 na base 2 
+    for (var j = i+1; j < Sy.length; j++) {
       if (calcularDist(Sy[i], Sy[j]) < disMinS) {
         s1 = Sy[i];
         s2 = Sy[j];
